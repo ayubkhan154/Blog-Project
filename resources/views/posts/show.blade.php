@@ -11,7 +11,7 @@
 @endsection
 @section('title-meta')
     <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a
-            href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->fullname }}</a></p>
+            href="{{ url('/user/'.$post->author_id)}}">{{ Auth::user()->getFullNameAttribute() }}</a></p>
 @endsection
 @section('content')
     @if($post)
