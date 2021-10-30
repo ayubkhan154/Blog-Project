@@ -44,10 +44,6 @@ Route::middleware(['auth'])->group(function () {
   Route::get('my-all-posts', 'UserController@user_posts_all');
   // display user's drafts
   Route::get('my-drafts', 'UserController@user_posts_draft');
-  // add comment
-  Route::post('comment/add', 'CommentController@store');
-  // delete comment
-  Route::post('comment/delete/{id}', 'CommentController@distroy');
 });
 
 //users profile

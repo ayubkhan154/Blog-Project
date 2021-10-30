@@ -22,7 +22,7 @@ class PostController extends Controller
 
   public function create(Request $request)
   {
-    // 
+    //
     if ($request->user()->can_post()) {
       return view('posts.create');
     } else {
@@ -61,8 +61,7 @@ class PostController extends Controller
     {
        return redirect('/')->withErrors('requested page not found');
     }
-    $comments = $post->comments;
-    return view('posts.show')->withPost($post)->withComments($comments);
+    return view('posts.show')->withPost($post);
   }
 
   public function edit(Request $request,$slug)
@@ -118,7 +117,7 @@ class PostController extends Controller
       $post->delete();
       $data['message'] = 'Post deleted Successfully';
     }
-    else 
+    else
     {
       $data['errors'] = 'Invalid Operation. You have not sufficient permissions';
     }

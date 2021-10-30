@@ -22,7 +22,7 @@ class User extends Authenticatable implements AuthenticatableContract, CanResetP
    *
    * @var array
    */
-  protected $fillable = ['name', 'email', 'password'];
+  protected $fillable = ['first_name', 'last_name', 'user_name', 'email', 'password'];
 
   /**
    * The attributes excluded from the model's JSON form.
@@ -35,12 +35,6 @@ class User extends Authenticatable implements AuthenticatableContract, CanResetP
   public function posts()
   {
     return $this->hasMany('App\Posts', 'author_id');
-  }
-
-  // user has many comments
-  public function comments()
-  {
-    return $this->hasMany('App\Comment', 'from_user');
   }
 
   public function can_post()
