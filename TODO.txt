@@ -1,0 +1,7 @@
+Make sure you have PHP and Laravel installed
+composer install
+php artisan migrate
+php artisan serve
+npm install
+npm run dev
+https://www.flowkl.com/tutorial/web-development/simple-blog-application-in-laravel-7/
