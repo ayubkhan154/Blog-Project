@@ -20,8 +20,8 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav medium">
           <a class="nav-item nav-link text-light" href="{{ url('/') }}">Home</a>
-          <a class="nav-item nav-link text-light" href="{{ url('/') }}">About Us</a>
-          <a class="nav-item nav-link text-light" href="{{ url('/') }}">Contact Us</a>
+          <a class="nav-item nav-link text-light" href="{{ url('/about') }}">About Us</a>
+          <a class="nav-item nav-link text-light" href="{{ url('/contact') }}">Contact Us</a>
       </div>
       <div class="navbar-nav ml-auto">
         @if (Auth::guest())
