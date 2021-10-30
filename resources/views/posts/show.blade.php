@@ -11,13 +11,12 @@
 @endsection
 @section('title-meta')
     <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a
-            href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->name }}</a></p>
+            href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->fullname }}</a></p>
 @endsection
 @section('content')
     @if($post)
         <section>
             <h1>{{ $post->title }}</h1>
-            <h2>{{ Auth::user()->fullname }}</h2>
             <p>{{ $post->body }}</p>
         </section>
     @else
