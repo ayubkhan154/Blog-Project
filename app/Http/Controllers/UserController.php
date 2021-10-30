@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Posts;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;  
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller {
   /*
    * Display active posts of a particular user
-   * 
+   *
    * @param int $id
    * @return view
    */
@@ -25,7 +25,7 @@ class UserController extends Controller {
   }
   /*
    * Display all of the posts of a particular user
-   * 
+   *
    * @param Request $request
    * @return view
    */
@@ -39,7 +39,7 @@ class UserController extends Controller {
   }
   /*
    * Display draft posts of a currently active user
-   * 
+   *
    * @param Request $request
    * @return view
    */
@@ -54,7 +54,7 @@ class UserController extends Controller {
   /**
    * profile for user
    */
-  public function profile(Request $request, $id) 
+  public function profile(Request $request, $id)
   {
     $data['user'] = User::find($id);
     if (!$data['user'])
@@ -75,10 +75,6 @@ class UserController extends Controller {
 
   public function logout(){
     Auth::logout();
-
-    $request->session()->invalidate();
-
-    $request->session()->regenerateToken();
 
     return redirect('/');
   }

@@ -33,7 +33,7 @@
           <a class="nav-item nav-link text-light" href="{{ url('/user/'.Auth::id().'/posts') }}">My Posts</a>
         @endif
         <a class="nav-item nav-link text-light" href="{{ url('/user/'.Auth::id()) }}">My Profile</a>
-        <a class="nav-item nav-link text-light" href="{{ url('/auth/logout') }}">Logout</a>
+        <a class="nav-item nav-link text-light" href="{{ url('/logout') }}">Logout</a>
       @endif
       </div>
     </div>

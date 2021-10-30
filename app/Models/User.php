@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Models;
 
@@ -40,7 +40,7 @@ class User extends Authenticatable implements AuthenticatableContract, CanResetP
   // user has many comments
   public function comments()
   {
-    return $this->hasMany('App\Comments', 'from_user');
+    return $this->hasMany('App\Comment', 'from_user');
   }
 
   public function can_post()
