@@ -22,12 +22,7 @@
     <input required="required" placeholder="Enter title here" type="text" name = "title" class="form-control" value="@if(!old('title')){{$post->title}}@endif{{ old('title') }}"/>
   </div>
   <div class="form-group">
-    <textarea name='body'class="form-control">
-      @if(!old('body'))
-      {!! $post->body !!}
-      @endif
-      {!! old('body') !!}
-    </textarea>
+    <textarea name='body'class="form-control">@if(!old('body')){!! $post->body !!}@endif{!! old('body') !!}</textarea>
   </div>
   @if($post->active == '1')
   <input type="submit" name='publish' class="btn btn-success" value = "Update"/>
