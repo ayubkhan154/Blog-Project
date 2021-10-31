@@ -51,7 +51,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('admin', 'UserController@admin')->name('admin');
+    Route::get('admin', 'AdminController@get_admin_dashboard');
+    Route::get('admin/user/{id}', 'AdminController@get_user_posts');
 });
 
 //users profile

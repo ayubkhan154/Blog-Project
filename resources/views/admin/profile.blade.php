@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Admin Dashboard
+@endsection
 @section('content')
     @if ($errors->any())
         <div class='flash alert-danger'>
@@ -12,28 +15,30 @@
         </div>
     @endif
     <div class="panel panel-default">
-        <div class="panel-heading"><h1>{{ $user->fullname }}</h1></div>
+        <div class="panel-heading"><h1>Users</h1></div>
         <div class="panel-body">
             <section>
-                <h2>Your Information</h2>
-                <p>Joined on {{$user->created_at->format('M d,Y \a\t h:i a') }}</p>
                 <table>
                     <tr>
-                        <td>Username</td>
-                        <td>{{ $user->user_name }}</td>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>E-mail Address</th>
+                        <th>Joined on</th>
+                        <th>Actions</th>
                     </tr>
-                    <tr>
-                        <td>First Name</td>
-                        <td>{{ $user->first_name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td>{{ $user->last_name }}</td>
-                    </tr>
-                    <tr>
-                        <td>E-mail Address</td>
-                        <td>{{ $user->email }}</td>
-                    </tr>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->first_name }}</td>
+                            <td>{{ $user->last_name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->created_at->format('M d,Y \a\t h:i a') }}</td>
+                            <td><a href="/admin/user/{{ $user->id }}">View Posts</a></td>
+                        </tr>
+                    @endforeach
                 </table>
             </section>
         </div>
