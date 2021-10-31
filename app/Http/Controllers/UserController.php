@@ -8,6 +8,9 @@ use App\Models\User;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 
 class UserController extends Controller
@@ -65,19 +68,46 @@ class UserController extends Controller
     public function profile(Request $request, $id)
     {
         $data['user'] = User::find($id);
-        if (!$data['user'])
-            return redirect('/');
-        if ($request->user() && $data['user']->id == $request->user()->id) {
-            $data['author'] = true;
-        } else {
-            $data['author'] = null;
-        }
-
-        $data['posts_count'] = $data['user']->posts->count();
-        $data['posts_active_count'] = $data['user']->posts->where('active', '1')->count();
-        $data['posts_draft_count'] = $data['posts_count'] - $data['posts_active_count'];
 
         return view('users.profile', $data);
+    }
+
+    public function updateProfile(Request $request)
+    {
+
+        dd($request);
+        $validate = $this->create($request->all());
+
+        $validator = $this->validator($validate->validate());
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+    }
+
+    protected function validator($data)
+    {
+        return Validator::make($data, [
+            'user_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'old_password' => ['required|null', 'string', 'min:8'],
+            'new_password' => 'required',
+            'password_confirmation' => 'required|same:new_password'
+
+        ]);
+    }
+
+    protected function create(array $data)
+    {
+        return User::create([
+            'user_name' => $data['user_name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 
     public function admin(Request $request) {
