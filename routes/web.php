@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('new-post', 'PostController@create');
     // save new post
     Route::post('new-post', 'PostController@store');
+    //users profile
+    Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
     // edit post form
     Route::get('edit/{slug}', 'PostController@edit');
     // update post
@@ -55,8 +57,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/user/{id}', 'AdminController@get_user_posts');
 });
 
-//users profile
-Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 // display list of posts
 Route::get('user/{id}/posts', 'UserController@user_posts')->where('id', '[0-9]+');
 // display single post
