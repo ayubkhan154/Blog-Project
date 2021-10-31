@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('title')
-    {{$title}}
-@endsection
 @section('content')
     <section>
         <h1>About Us</h1>

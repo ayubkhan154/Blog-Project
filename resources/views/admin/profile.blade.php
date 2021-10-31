@@ -28,19 +28,6 @@
                     </tr>
                 </table>
             </section>
-            <section>
-                <h2>Your Posts</h2>
-                @if(!empty($latest_posts[0]))
-                    @foreach($latest_posts as $latest_post)
-                        <p>
-                            <strong><a href="{{ url('/'.$latest_post->slug) }}">{{ $latest_post->title }}</a></strong>
-                            <span class="well-sm">On {{ $latest_post->created_at->format('M d,Y \a\t h:i a') }}</span>
-                        </p>
-                    @endforeach
-                @else
-                    <p>You have not written any post till now.</p>
-                @endif
-            </section>
         </div>
     </div>
 @endsection
