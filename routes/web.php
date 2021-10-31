@@ -50,7 +50,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin', 'AdminController@get_admin_dashboard');
-    Route::get('admin/user/{id}', 'AdminController@get_user_posts');
+    Route::get('admin/user/{id}/posts', 'AdminController@get_user_posts');
+    Route::get('admin/user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 });
 
 // display list of posts
