@@ -38,8 +38,8 @@
                                 <td class="align-middle">{{ $user->email }}</td>
                                 <td class="align-middle">{{ $user->created_at->format('M d,Y \a\t h:i a') }}</td>
                                 <td class="align-middle">
-                                    <a class="btn btn-primary" href="/admin/user/{{ $user->id }}/posts">View Posts</a>
-                                    <a class="btn btn-primary" href="/admin/user/{{ $user->id }}">View User</a>
+                                    <a class="btn btn-primary" href="/admin/user/{{ $user->id }}">Edit User</a>
+                                    <a class="btn btn-secondary" href="/admin/user/{{ $user->id }}/posts">View User's posts</a>
                                 </td>
                             </tr>
                         @endforeach
