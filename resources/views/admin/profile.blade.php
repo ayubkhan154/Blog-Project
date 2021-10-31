@@ -18,25 +18,25 @@
         <div class="panel-heading"><h1>Users</h1></div>
         <div class="panel-body">
             <section>
-                <table>
+                <table class="table m-0 table-hover">
                     <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>E-mail Address</th>
-                        <th>Joined on</th>
-                        <th>Actions</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">E-mail Address</th>
+                        <th scope="col">Joined on</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     @foreach($users as $user)
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->username }}</td>
-                            <td>{{ $user->first_name }}</td>
-                            <td>{{ $user->last_name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->created_at->format('M d,Y \a\t h:i a') }}</td>
-                            <td><a href="/admin/user/{{ $user->id }}">View Posts</a></td>
+                            <td class="align-middle">{{ $user->id }}</td>
+                            <td class="align-middle">{{ $user->user_name }}</td>
+                            <td class="align-middle">{{ $user->first_name }}</td>
+                            <td class="align-middle">{{ $user->last_name }}</td>
+                            <td class="align-middle">{{ $user->email }}</td>
+                            <td class="align-middle">{{ $user->created_at->format('M d,Y \a\t h:i a') }}</td>
+                            <td class="align-middle"><a class="btn btn-primary" href="/admin/user/{{ $user->id }}">View Posts</a></td>
                         </tr>
                     @endforeach
                 </table>
