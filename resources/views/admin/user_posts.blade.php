@@ -12,11 +12,11 @@
         </tr>
         @foreach($posts as $post)
             <tr>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->created_at }}</td>
-                <td>{{ $post->updated_at }}</td>
+                <td><a href="/post/{{ $post->slug }}">{{ $post->title }}</a></td>
+                <td>{{ $post->created_at->format('M d,Y \a\t h:i a') }}</td>
+                <td>{{ $post->updated_at->format('M d,Y \a\t h:i a') }}</td>
                 <td>
-                    <a href="/edit/{{ $post->id }}">Edit</a>
+                    <a href="/edit/{{ $post->slug }}">Edit</a>
                     <a href="/delete/{{ $post->id }}">Delete</a>
                 </td>
             </tr>
