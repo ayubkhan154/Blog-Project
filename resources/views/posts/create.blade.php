@@ -1,16 +1,5 @@
 @extends('layouts.app')
 @section('title')
-    @if ($errors->any())
-        <div class='flash alert-danger'>
-            <ul class="panel-body">
-                @foreach ( $errors->all() as $error )
-                    <li>
-                        {{ $error }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     @if (\Session::has('success'))
         <div class="alert alert-success">
             {!! \Session::get('success') !!}
@@ -22,6 +11,18 @@ Add New Post
 @endsection
 
 @section('content')
+
+    @if ($errors->any())
+        <div class='flash alert-danger'>
+            <ul class="panel-body">
+                @foreach ( $errors->all() as $error )
+                    <li>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 <form action="/new-post" method="post">
 

@@ -45,7 +45,7 @@ class PostController extends Controller
     $post->author_id = $request->user()->id;
     if ($request->has('save')) {
       $post->active = 0;
-      $message = 'Post saved successfully';
+      $message = 'Post saved as draft';
     } else {
       $post->active = 1;
       $message = 'Post published successfully';
@@ -97,7 +97,7 @@ class PostController extends Controller
         $landing = 'edit/' . $post->slug;
       } else {
         $post->active = 1;
-        $message = 'Post updated successfully';
+        $message = 'Post updated and published successfully';
         $landing = 'post/' . $post->slug;
       }
       $post->save();
