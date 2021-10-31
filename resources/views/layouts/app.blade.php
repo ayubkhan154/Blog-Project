@@ -43,39 +43,12 @@
     </div>
 
 </nav>
-{{-- <div class="navbar-header bg-dark shadow p-3 mb-5 bg-body float-end justify-content-end">
-  <p class="navbar-text navbar-right actions">
-    <a class="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/') }}">Home</a>
-    @if (Auth::guest())
-      <a class="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/auth/login') }}">Login</a>
-      <a class="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/auth/register') }}">Register</a>
-    @else
-      @if (Auth::user()->can_post())
-        <a class="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/new-post') }}">Add new post</a>
-        <a class="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/user/'.Auth::id().'/posts') }}">My Posts</a>
-      @endif
-      <a xclass="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/user/'.Auth::id()) }}">My Profile</a>
-      <a class="btn btn-primary btn-md mr-1 mx-auto" style="width: 150px" href="{{ url('/auth/logout') }}">Logout</a>
-    @endif
-  </p>
-</div>  --}}
 <div class="container">
     @if (Session::has('message'))
         <div class="flash alert-info">
             <p class="panel-body">
                 {{ Session::get('message') }}
             </p>
-        </div>
-    @endif
-    @if ($errors->any())
-        <div class='flash alert-danger'>
-            <ul class="panel-body">
-                @foreach ( $errors->all() as $error )
-                    <li>
-                        {{ $error }}
-                    </li>
-                @endforeach
-            </ul>
         </div>
     @endif
     <div class="row">

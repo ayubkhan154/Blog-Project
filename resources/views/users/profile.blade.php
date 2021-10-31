@@ -3,16 +3,26 @@
     <div class="panel panel-default">
         <div class="panel-heading"><h1> {{ $user->fullname }} </h1></div>
         <p>Joined on {{$user->created_at->format('M d,Y \a\t h:i a') }}</p>
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                {!! \Session::get('success') !!}
+            </div>
+        @endif
         <div class="panel-body">
             <div class="card-body">
                 <form method="POST" action="{{ url('/update-profile') }}">
                     @csrf
                     <h2>Your Information</h2>
-                    @if($errors->any())
-                        {{ implode('', $errors->all('<div>:message</div>')) }}
-                    @endif
-                    <table>
+{{--                    @if($errors->any())--}}
+{{--                        {{ implode('', $errors->all(':message')) }}--}}
+{{--                    @endif--}}
+{{--                    <table>--}}
                         <tr>
+                            <td>Email</td>
+                            <td>
+                               {{ $user->email  }}
+                            </td>
+                        </tr> <tr>
                             <td>Username</td>
                             <td>
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name"
@@ -46,18 +56,6 @@
                                        value="{{ $user->last_name }}" required autocomplete="family-name" autofocus>
 
                                 @error('last_name')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror</td>
-                        </tr>
-                        <tr>
-                            <td>E-mail Address</td>
-                            <td><input id="email" type="email"
-                                       class="form-control @error('email') is-invalid @enderror" name="email"
-                                       value="{{ $user->email }}" required autocomplete="email">
-
-                                @error('email')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
