@@ -49,6 +49,10 @@ Route::middleware(['auth'])->group(function () {
   Route::get('my-drafts', 'UserController@user_posts_draft');
 });
 
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('admin', 'UserController@admin')->name('admin');
+});
+
 //users profile
 Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 // display list of posts

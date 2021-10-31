@@ -77,7 +77,11 @@ class UserController extends Controller
         $data['posts_active_count'] = $data['user']->posts->where('active', '1')->count();
         $data['posts_draft_count'] = $data['posts_count'] - $data['posts_active_count'];
 
-        return view('admin.profile', $data);
+        return view('users.profile', $data);
+    }
+
+    public function admin(Request $request) {
+        return view('admin.profile', ['user' => $request->admin]);
     }
 
     public function logout()

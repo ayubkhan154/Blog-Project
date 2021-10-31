@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h1>{{ $user->fullname }}</h1></div>
+        <div class="panel-heading"><h1> {{ $user->fullname }} </h1></div>
         <div class="panel-body">
             <section>
                 <h2>Your Information</h2>
