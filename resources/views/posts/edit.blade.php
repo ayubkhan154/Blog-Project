@@ -15,6 +15,11 @@
             </ul>
         </div>
     @endif
+    @if (\Session::has('success'))
+        <div class="alert alert-success">
+            {!! \Session::get('success') !!}
+        </div>
+    @endif
     <form method="post" action='{{ url("/update") }}'>
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <input type="hidden" name="post_id" value="{{ $post->id }}{{ old('post_id') }}">

@@ -44,17 +44,11 @@
 
 </nav>
 <div class="container">
-    @if (Session::has('message'))
-        <div class="flash alert-info">
-            <p class="panel-body">
-                {{ Session::get('message') }}
-            </p>
-        </div>
-    @endif
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <span>@yield('notification')</span>
                     <h2>@yield('title')</h2>
                     @yield('title-meta')
                 </div>

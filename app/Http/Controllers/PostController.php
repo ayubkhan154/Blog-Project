@@ -51,7 +51,7 @@ class PostController extends Controller
       $message = 'Post published successfully';
     }
     $post->save();
-    return redirect('edit/' . $post->slug)->withMessage($message);
+    return redirect('edit/' . $post->slug)->with('success',  $message);
   }
 
   public function show($slug)
@@ -74,7 +74,6 @@ class PostController extends Controller
 
   public function update(Request $request)
   {
-    //
     $post_id = $request->input('post_id');
     $post = Posts::find($post_id);
     if ($post && ($post->author_id == $request->user()->id || $request->user()->is_admin())) {
@@ -94,15 +93,15 @@ class PostController extends Controller
 
       if ($request->has('save')) {
         $post->active = 0;
-        $message = 'Post saved successfully';
+        $message = 'Post saved as draft';
         $landing = 'edit/' . $post->slug;
       } else {
         $post->active = 1;
         $message = 'Post updated successfully';
-        $landing = $post->slug;
+        $landing = 'post/' . $post->slug;
       }
       $post->save();
-      return redirect($landing)->withMessage($message);
+      return redirect($landing)->with('success',  $message) ;
     } else {
       return redirect('/')->withErrors('you have not sufficient permissions');
     }
@@ -110,16 +109,13 @@ class PostController extends Controller
 
   public function destroy(Request $request, $id)
   {
-    //
     $post = Posts::find($id);
-    if($post && ($post->author_id == $request->user()->id || $request->user()->is_admin()))
-    {
+    if($post && ($post->author_id == $request->user()->id || $request->user()->is_admin())) {
       $post->delete();
-      $data['message'] = 'Post deleted Successfully';
+      $data['success'] = 'Post deleted Successfully';
     }
-    else
-    {
-      $data['errors'] = 'Invalid Operation. You have not sufficient permissions';
+    else {
+      $data['errors'] = 'Invalid Operation. You have dont have sufficient permissions';
     }
     return redirect('/')->with($data);
   }

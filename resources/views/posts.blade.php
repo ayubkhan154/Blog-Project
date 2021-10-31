@@ -14,39 +14,39 @@
             </ul>
         </div>
     @endif
+    <ul class="list-group">
+        <li class="list-group-item">
+            Joined on {{$user->created_at->format('M d,Y \a\t h:i a') }}
+        </li>
+        <li class="list-group-item panel-body">
+            <table class="table-padding">
+                <style>
+                    .table-padding td{
+                        padding: 3px 8px;
+                    }
+                </style>
+                <tr>
+                    <td>Total Posts</td>
+                    <td> {{$posts_count}}</td>
+                    @if($posts_count)
+                        <td><a href="{{ url('/my-all-posts')}}">Show All</a></td>
+                    @endif
+                </tr>
+                <tr>
+                    <td>Posts in Draft </td>
+                    <td>{{$posts_draft_count}}</td>
+                    @if($posts_draft_count)
+                        <td><a href="{{ url('my-drafts')}}">Show All</a></td>
+                    @endif
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <br>
+    <br>
     @if ( !$posts->count() )
         There is no post till now. Login and write a new post now!!!
     @else
-        <ul class="list-group">
-            <li class="list-group-item">
-                Joined on {{$user->created_at->format('M d,Y \a\t h:i a') }}
-            </li>
-            <li class="list-group-item panel-body">
-                <table class="table-padding">
-                    <style>
-                        .table-padding td{
-                            padding: 3px 8px;
-                        }
-                    </style>
-                    <tr>
-                        <td>Total Posts</td>
-                        <td> {{$posts_count}}</td>
-                        @if($posts_count)
-                            <td><a href="{{ url('/my-all-posts')}}">Show All</a></td>
-                        @endif
-                    </tr>
-                    <tr>
-                        <td>Posts in Draft </td>
-                        <td>{{$posts_draft_count}}</td>
-                        @if($posts_draft_count)
-                            <td><a href="{{ url('my-drafts')}}">Show All</a></td>
-                        @endif
-                    </tr>
-                </table>
-            </li>
-        </ul>
-        <br>
-        <br>
         <div class="">
             <div class="list-group">
                 <h2>Published Posts</h2>

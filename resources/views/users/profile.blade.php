@@ -13,10 +13,6 @@
                 <form method="POST" action="{{ url('/update-profile') }}">
                     @csrf
                     <h2>Your Information</h2>
-{{--                    @if($errors->any())--}}
-{{--                        {{ implode('', $errors->all(':message')) }}--}}
-{{--                    @endif--}}
-{{--                    <table>--}}
                         <tr>
                             <td>Email</td>
                             <td>

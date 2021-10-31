@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('notification')
+    @if (\Session::has('success'))
+        <div class="alert alert-success">
+            {!! \Session::get('success') !!}
+        </div>
+    @endif
+@endsection
 @section('title')
     @if($post)
         {{ $post->title }}
