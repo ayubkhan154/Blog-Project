@@ -1,16 +1,16 @@
 @extends('layouts.app')
-@if ($errors->any())
-    <div class='flash alert-danger'>
-        <ul class="panel-body">
-            @foreach ( $errors->all() as $error )
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 @section('content')
+    @if ($errors->any())
+        <div class='flash alert-danger'>
+            <ul class="panel-body">
+                @foreach ( $errors->all() as $error )
+                    <li>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="panel panel-default">
         <div class="panel-heading"><h1>{{ $user->fullname }}</h1></div>
         <div class="panel-body">

@@ -1,19 +1,19 @@
 @extends('layouts.app')
-@if ($errors->any())
-    <div class='flash alert-danger'>
-        <ul class="panel-body">
-            @foreach ( $errors->all() as $error )
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 @section('title')
     {{$title}}
 @endsection
 @section('content')
+    @if ($errors->any())
+        <div class='flash alert-danger'>
+            <ul class="panel-body">
+                @foreach ( $errors->all() as $error )
+                    <li>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if ( !$posts->count() )
         There is no post till now. Login and write a new post now!!!
     @else

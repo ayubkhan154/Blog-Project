@@ -1,21 +1,21 @@
 @extends('layouts.app')
-@if ($errors->any())
-    <div class='flash alert-danger'>
-        <ul class="panel-body">
-            @foreach ( $errors->all() as $error )
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
 @section('title')
-Edit Post
+    Edit Post
 @endsection
 @section('content')
-<form method="post" action='{{ url("/update") }}'>
+    @if ($errors->any())
+        <div class='flash alert-danger'>
+            <ul class="panel-body">
+                @foreach ( $errors->all() as $error )
+                    <li>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form method="post" action='{{ url("/update") }}'>
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <input type="hidden" name="post_id" value="{{ $post->id }}{{ old('post_id') }}">
   <div class="form-group">
