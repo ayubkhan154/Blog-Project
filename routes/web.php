@@ -46,6 +46,9 @@ Route::middleware(['auth'])->group(function () {
     // display user's drafts
     Route::get('my-drafts', 'UserController@user_posts_draft');
     Route::post('update-profile', 'UserController@updateProfile');
+    Route::get('change-password', 'ChangePasswordController@index');
+
+    Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 });
 
 Route::group(['middleware' => ['admin']], function () {
