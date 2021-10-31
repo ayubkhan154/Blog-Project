@@ -13,12 +13,14 @@
                 <form method="POST" action="{{ url('/update-profile') }}">
                     @csrf
                     <h2>Your Information</h2>
+                    <table>
                         <tr>
                             <td>Email</td>
                             <td>
                                {{ $user->email  }}
                             </td>
-                        </tr> <tr>
+                        </tr>
+                        <tr>
                             <td>Username</td>
                             <td>
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name"
