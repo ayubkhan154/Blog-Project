@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Blog Demo</title>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <!-- Fonts -->
@@ -11,8 +12,8 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light bg-dark shadow p-3 mb-5 bg-body">
-    <a href="{{ url('/') }}" class="navbar-brand text-light"><h2><b>Demo Blogger</b></h2></a>
+<nav class="navbar navbar-expand-md navbar-light bg-primary shadow p-1 px-3 mb-5">
+    <a href="{{ url('/') }}" class="navbar-brand"><img src="logo.png" width="200px" height="auto" alt="Logo"></a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>

@@ -15,7 +15,6 @@
         </div>
     @endif
     <div class="panel panel-default">
-        <div class="panel-heading"><h1>Users</h1></div>
         <div class="panel-body">
             <section>
                 <div class="bg-white border">
@@ -39,7 +38,8 @@
                                 <td class="align-middle">{{ $user->created_at->format('M d,Y \a\t h:i a') }}</td>
                                 <td class="align-middle">
                                     <a class="btn btn-primary" href="/admin/user/{{ $user->id }}">Edit User</a>
-                                    <a class="btn btn-secondary" href="/admin/user/{{ $user->id }}/posts">View User's posts</a>
+                                    <a class="btn btn-secondary" href="/admin/user/{{ $user->id }}/posts">View User's
+                                        posts</a>
                                 </td>
                             </tr>
                         @endforeach
