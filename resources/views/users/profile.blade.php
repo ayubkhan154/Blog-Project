@@ -59,13 +59,23 @@
                                     </span>
                                 @enderror</td>
                         </tr>
+                        <tr>
+                            <td><br></td>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button type="submit" class="btn btn-success">Update</button>
+                                <a href="{{ url('change-password') }}" class="btn btn-primary">Change Password</a>
+                            </td>
+                        </tr>
                     </table>
-                    <br>
                     <br>
                     <div class="form-group row mb-0">
                         <div class="col-md-4 offset-md-2">
-                            <button type="submit" class="btn btn-success">Update</button>
-                            <a href="{{ url('change-password') }}">Change Password</a>
+
+
                         </div>
                     </div>
                 </form>

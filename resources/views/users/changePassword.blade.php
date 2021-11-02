@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <h1>Change Password</h1>
+    <h1 class="row justify-content-center">Change Password</h1>
     @if(!empty($success))
         <div class="alert alert-success" role="alert">
             Password changed successfully!
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-success">
                                         Update Password
                                     </button>
                                 </div>
