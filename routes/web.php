@@ -45,11 +45,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-all-posts', 'UserController@user_posts_all');
     // display user's drafts
     Route::get('my-drafts', 'UserController@user_posts_draft');
+    // update user profile
     Route::post('update-profile', 'UserController@updateProfile');
+    // change user password frontend
     Route::get('change-password', 'ChangePasswordController@index');
+    // submit new password
     Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 });
 
+// admin routes
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin', 'AdminController@get_admin_dashboard');
     Route::get('admin/user/{id}/posts', 'AdminController@get_user_posts');
