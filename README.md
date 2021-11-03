@@ -1,11 +1,18 @@
-<p>npm install</p>
+<h2>Setup Requirements</h2>
 <p>install php 7.3</p>
-<p>install composer</p>
 <p>install node and npm</p>
-<p>composer install</p>
 <p>create .env and copy the contents of .env.example</p>
-<p>create db blog</p>
-<p> run php artisan serve</p>
-<p> run npm run watch</p>
+<p>create database named blog</p>
 
-[comment]: <> (TODO the pagination and home page blog without url fix and seeders )
+<h2>Terminal Commands</h2>
+<code>npm install</code>
+<br>
+<code>composer install</code>
+<br>
+<code> run php artisan serve</code>
+<br>
+<code>install composer</code>
+<br>
+<code>php artisan migrate<code>
+<br>
+<code>php artisan db:seed</code>
