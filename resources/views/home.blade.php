@@ -13,8 +13,11 @@
     @if ( !$posts->count() )
         There is no post till now. Login and write a new post now!!!
     @else
-        <div class="">
+        <div class="panel-body">
             <div class="list-group">
+                <div class="pagination p-4 justify-content-center">
+                    {{ $posts->links() }}
+                </div>
                 @foreach( $posts as $post )
 
                     <div class="list-group-item">
@@ -30,9 +33,9 @@
                             @endif
                         </h3>
                         <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a
-                                href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->fullname }}</a></p>
+                                href="{{ url('/user/'.$post->author_id.'/posts')}}">{{ $post->author->fullname }}</a></p>
                     </div>
-                    <div class="list-group-item">
+                    <div class="list-group-item mb-3">
                         <article>
                             {!! Str::limit($post->body, $limit = 1500, $end = '....... <a href='.url("/".$post->slug).'>Read More</a>') !!}
                         </article>
@@ -40,7 +43,11 @@
 
                 @endforeach
             </div>
-            {!! $posts->render() !!}
         </div>
+        <div class="pagination p-4 justify-content-center">
+            {{ $posts->links() }}
+        </div>
+        <br>
+        <br>
     @endif
 @endsection

@@ -55,7 +55,6 @@ class UserController extends Controller
      */
     public function user_posts_draft(Request $request)
     {
-        //
         $user = $request->user();
         $posts = Posts::where('author_id', $user->id)->where('active', 0)->orderBy('created_at', 'desc')->paginate(5);
         $title = $user->name;
@@ -67,9 +66,15 @@ class UserController extends Controller
      */
     public function profile(Request $request, $id)
     {
-        $data['user'] = User::find($id);
+        $user = Auth::user();
 
-        return view('users.profile', $data);
+        if ($user->id == $id || $user->is_admin() == true) {
+            $data['user'] = User::find($id);
+
+            return view('users.profile', $data);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function updateProfile(Request $request)
@@ -98,8 +103,14 @@ class UserController extends Controller
 
     protected function create(array $data)
     {
+        if(Auth::user()->is_admin()) {
+            $updateWhere = ['id' => $data['user_id']];
+        } else {
+            $updateWhere =  ['email' => auth()->user()->email];
+        }
+
         return User::updateOrCreate(
-            ['email' => auth()->user()->email],
+            $updateWhere,
             [
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],

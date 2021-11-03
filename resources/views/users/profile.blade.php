@@ -13,6 +13,7 @@
                 <form method="POST" action="{{ url('/update-profile') }}">
                     @csrf
                     <h2>Your Information</h2>
+                    <input  name="user_id" value="{{ $user->id }}" type="hidden">
                     <table>
                         <tr>
                             <td>Email</td>

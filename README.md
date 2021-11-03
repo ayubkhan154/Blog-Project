@@ -7,3 +7,5 @@
 <p>create db blog</p>
 <p> run php artisan serve</p>
 <p> run npm run watch</p>
+
+[comment]: <> (TODO the pagination and home page blog without url fix and seeders )

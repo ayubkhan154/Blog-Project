@@ -50,7 +50,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <span>@yield('notification')</span>
-                    <h2>@yield('title')</h2>
+                    <h1 class="text-center mb-5">@yield('title')</h1>
                     @yield('title-meta')
                 </div>
                 <div class="panel-body">

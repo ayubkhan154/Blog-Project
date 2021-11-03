@@ -28,10 +28,8 @@
     @endif
 @endsection
 @section('title-meta')
-    @if(Auth::user())
-    <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a
-            href="{{ url('/user/'.$post->author_id)}}">{{ Auth::user()->getFullNameAttribute() }}</a></p>
-    @endif
+    <i>{{ $post->created_at->format('M d,Y \a\t h:i a') }}</i>
+    <p>By <b>{{ $post->author->getFullNameAttribute() }}</b><i> &lt email: {{ $post->author->email }} &gt</i></p>
 @endsection
 @section('content')
     @if($post)
