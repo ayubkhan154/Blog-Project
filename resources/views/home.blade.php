@@ -37,7 +37,7 @@
                     </div>
                     <div class="list-group-item mb-3">
                         <article>
-                            {!! Str::limit($post->body, $limit = 1500, $end = '....... <a href='.url("/".$post->slug).'>Read More</a>') !!}
+                            {!! Str::limit($post->body, $limit = 100, $end = '....... <a href='.url("post/".$post->slug).'>Read More</a>') !!}
                         </article>
                     </div>
 

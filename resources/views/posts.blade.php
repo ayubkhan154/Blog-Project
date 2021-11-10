@@ -14,7 +14,7 @@
             </ul>
         </div>
     @endif
-    @if(Auth::user()->id == $user->id || Auth::user()->is_admin())
+    @if(Auth::user() && (Auth::user()->id == $user->id || Auth::user()->is_admin()))
         <ul class="list-group">
             <li class="list-group-item">
                 Joined on {{$user->created_at->format('M d,Y \a\t h:i a') }}
@@ -47,11 +47,11 @@
         <br>
     @endif
     @if ( !$posts->count() )
-        There is no post till now. Login and write a new post now!!!
+        There is no post till now. Login and write a new post!
     @else
         <div class="">
             <div class="list-group">
-                <h2>Published Posts</h2>
+                <h2 class="text-center mb-5">Published Posts</h2>
                 @foreach( $posts as $post )
 
                     <div class="list-group-item">
@@ -66,8 +66,7 @@
                                 @endif
                             @endif
                         </h3>
-                        <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a
-                                href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->fullname }}</a></p>
+                        <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By {{ $post->author->fullname }}
                     </div>
                     <div class="list-group-item mb-3">
                         <article>

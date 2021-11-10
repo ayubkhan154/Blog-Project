@@ -24,7 +24,7 @@ class UserController extends Controller
     public function user_posts($id)
     {
         $data['user'] = User::find($id);
-        $data['title'] = 'My Posts';
+        $data['title'] = $data['user']->getFullNameAttribute() . ' Blog Posts';
         $data['posts'] = Posts::where('author_id', $id)->where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
         $data['posts_count'] = $data['user']->posts->count();
         $data['posts_active_count'] = $data['user']->posts->where('active', '1')->count();
